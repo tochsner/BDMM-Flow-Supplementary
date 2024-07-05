@@ -1,12 +1,21 @@
 algorithm,time,likelihood
-Random Initial Matrix,506,-146992
-Random Initial Matrix,858,-25009
-Random Initial Matrix,796,-25265
-Random Initial Matrix,470,-146852
-Random Initial Matrix,542,145682
-Random Initial Matrix + Inverse Flow,483,-26692
-Random Initial Matrix + Inverse Flow,842,-25009
-Random Initial Matrix + Inverse Flow,787,-25622
-Random Initial Matrix + Inverse Flow,471,145592
-Parallelized BDMM-Prime,1687,-26291
-Parallelized BDMM-Prime,1633,-26291
+Parallelized BDMM-Prime,2246,-26291
+Parallelized BDMM-Prime,3053,-26291
+Parallelized BDMM-Prime,2101,-26291
+Parallelized BDMM-Prime,1876,-26291
+Parallelized BDMM-Prime,2875,-26291
+No Extensions,616,-25766
+No Extensions,553,-26846
+No Extensions,821,147097
+No Extensions,667,147097
+No Extensions,669,147097
+Random Initial Matrix,509,144997
+Random Initial Matrix,666,-25009
+Random Initial Matrix,550,-25265
+Random Initial Matrix,497,-146852
+Random Initial Matrix,523,-146852
+Random Initial Matrix + Inverse Flow,494,-26692
+Random Initial Matrix + Inverse Flow,499,-25009
+Random Initial Matrix + Inverse Flow,537,-25622
+Random Initial Matrix + Inverse Flow,520,145592
+Random Initial Matrix + Inverse Flow,570,145592
