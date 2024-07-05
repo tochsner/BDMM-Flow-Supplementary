@@ -1650,7 +1650,7 @@
 
 			<distribution spec='CompoundDistribution' id='posterior'>
 				<distribution idref="treeLikelihood"/>
-				<distribution id="treePrior" spec="bdmmflow.BirthDeathMigrationDistribution" tree="@tree" typeTraitSet="@typeTraitSet" useRandomInitialMatrix="true" useInverseFlow="false">
+				<distribution id="treePrior" spec="bdmmflow.BirthDeathMigrationDistribution" tree="@tree" typeTraitSet="@typeTraitSet" useRandomInitialMatrix="true" useInverseFlow="false" minNumIntervals="8">
 				<frequencies id="geo-frequencies" spec='RealParameter' value="0.334 0.333 0.333" lower="0" upper="1"/>
 				<parameterization spec="bdmmprime.parameterization.EpiParameterization" processLength="@treeOrigin">
 					<R0 spec="bdmmprime.parameterization.SkylineVectorParameter" skylineValues="@R0" changeTimes="8.11 8.61 9.11 9.61 10.11 10.61 11.11 11.61 12.11 12.61 13.11 13.61 14.11 14.61 15.11 15.61 16.11 16.61 17.11 17.61 18.11 18.61 19.11 19.61" />
