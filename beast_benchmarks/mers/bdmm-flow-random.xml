@@ -329,7 +329,7 @@ name="alignment">
         </init>
         <distribution id="posterior" spec="CompoundDistribution">
             <distribution id="prior" spec="CompoundDistribution">
-                <distribution id="BDMMPrime.t:MERS_CoV_274" spec="bdmmflow.BirthDeathMigrationDistribution" conditionOnSurvival="false" tree="@Tree.t:MERS_CoV_274" parallelize="true" initialMatrixStrategy="random" useInverseFlow="false">
+                <distribution id="BDMMPrime.t:MERS_CoV_274" spec="bdmmflow.BirthDeathMigrationDistribution" conditionOnSurvival="false" tree="@Tree.t:MERS_CoV_274" parallelize="true" initialMatrixStrategy="random" useInverseFlow="false" maxConditioningNumber="1e15">
                     <parameterization id="EpiBDMMPrimeParameterization.t:MERS_CoV_274" spec="bdmmprime.parameterization.EpiParameterization" processLength="@originBDMMPrime.t:MERS_CoV_274">
                         <Re id="ReSPEpi.t:MERS_CoV_274" spec="bdmmprime.parameterization.SkylineVectorParameter" isScalar="false" processLength="@originBDMMPrime.t:MERS_CoV_274" skylineValues="@ReEpi.t:MERS_CoV_274" timesAreAges="true">
                             <typeSet id="typeSetBDMMPrime.t:MERS_CoV_274" spec="bdmmprime.parameterization.TypeSet">
