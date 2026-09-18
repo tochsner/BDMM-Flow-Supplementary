@@ -2,5 +2,7 @@ installBDMM.sh
 installAndRun.sh
 .vscode
 .venv
-.DS_Store
 **/.ipynb_checkpoints/**
+
+# ignore macOS folder metadata at any depth
+.DS_Store

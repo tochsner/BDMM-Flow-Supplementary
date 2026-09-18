@@ -1,7 +1,7 @@
 [project]
 name = "bdmm-flow-supplementary"
 version = "0.1.0"
-description = "Add your description here"
+description = "Supplementary benchmarks and analyses for Speeding up Multi-type Birth-Death Phylodynamics."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [

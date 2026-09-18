@@ -1,3 +1,9 @@
+# submit H3N2 benchmarks to Slurm for 16 seeds and all flow/preconditioner/interval combinations.
+# run with Bash from this dataset folder; requires sbatch and the configured relative BEAST executable.
+# deletes existing contents of out/ and results/ before submitting jobs; creates the folders if missing.
+
+mkdir -p out results || exit 1
+
 rm -rf out/*
 rm -rf results/*
 

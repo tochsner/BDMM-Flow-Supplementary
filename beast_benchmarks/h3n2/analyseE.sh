@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# list legacy underscore-named out/*.out files containing exceptions, grouped by algorithm.
+# run from this dataset folder with Bash 4+; reads out/ without modifying results.
+
 shopt -s nullglob
 
 unset files_with_exception

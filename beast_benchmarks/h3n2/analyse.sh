@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# summarize mean seconds per million samples by algorithm from legacy underscore-named out/*.out files.
+# run from this dataset folder with Bash 4+; reads out/ without modifying results.
+
 shopt -s nullglob
 
 unset sum count
