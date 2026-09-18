@@ -1,4 +1,5 @@
 installBDMM.sh
+installAndRun.sh
 .vscode
 .venv
 .DS_Store
