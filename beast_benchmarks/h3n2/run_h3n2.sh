@@ -1,11 +1,17 @@
-rm -rf out
-rm -rf results
+rm -rf out/*
+rm -rf results/*
 
-mkdir -p out
-mkdir -p results
+preconditioners=("identity" "average_inverse")
 
-for i in `seq 1 1`; do
-    sbatch --cpus-per-task=8 --time=160:00:00 --mem-per-cpu=4G --output out/bdmmflow_$i.out --wrap="../../../../beast/bin/beast -seed 2297453$i -statefile results/bdmm-flow.$i.state -overwrite bdmm-flow.xml"
-    sbatch --cpus-per-task=8 --time=160:00:00 --mem-per-cpu=2G --output out/bdmmflow_random_$i.out --wrap="../../../../beast/bin/beast -seed 2297453$i -statefile results/bdmm-flow-random.$i.state -overwrite bdmm-flow-random.xml"
-    sbatch --cpus-per-task=8 --time=160:00:00 --mem-per-cpu=4G --output out/bdmmprime_$i.out --wrap="../../../../beast/bin/beast -seed 2297453$i -statefile results/bdmm-prime.$i.state -overwrite bdmm-prime.xml"
+for i in `seq 1 16`; do
+    for preconditioner in "${preconditioners[@]}"; do
+        for inverseFlow in true false; do
+            for loucaPennell in true false; do
+                experiment="bdmmflow.${preconditioner}.${inverseFlow}.1e8.${loucaPennell}.${i}"
+                sbatch --cpus-per-task=12 --time=96:00:00 --mem-per-cpu=6G --output out/$experiment.out --wrap="../../../../beast/bin/beast -threads -1 -seed $i -D 'preconditioner=$preconditioner,inverseFlow=$inverseFlow,maxConditioningNumber=1e8,useLoucaPennellIntervals=${loucaPennell}' -statefile results/$experiment.state -overwrite bdmm-flow.xml"
+            done
+        done
+    done
+
+    sbatch --cpus-per-task=12 --time=96:00:00 --mem-per-cpu=6G --output out/bdmmprime_$i.out --wrap="../../../../beast/bin/beast -threads -1 -seed $i -statefile results/bdmm-prime.$i.state -overwrite bdmm-prime.xml"
 done

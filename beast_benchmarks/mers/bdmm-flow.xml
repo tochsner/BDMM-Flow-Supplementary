@@ -329,7 +329,7 @@ name="alignment">
         </init>
         <distribution id="posterior" spec="CompoundDistribution">
             <distribution id="prior" spec="CompoundDistribution">
-                 <distribution id="BDMMPrime.t:MERS_CoV_274" spec="bdmmflow.BirthDeathMigrationDistribution" conditionOnSurvival="false" tree="@Tree.t:MERS_CoV_274" parallelize="true" initialMatrixStrategy="identity" useInverseFlow="false" maxConditioningNumber="1e15">
+                 <distribution id="BDMMPrime.t:MERS_CoV_274" spec="bdmmflow.BirthDeathMigrationDistribution" conditionOnSurvival="false" tree="@Tree.t:MERS_CoV_274" parallelize="true" initialMatrixStrategy="$(preconditioner)" useInverseFlow="$(inverseFlow)" maxConditioningNumber="$(maxConditioningNumber)" useLoucaPennellIntervals="$(useLoucaPennellIntervals)">
                     <parameterization id="EpiBDMMPrimeParameterization.t:MERS_CoV_274" spec="bdmmprime.parameterization.EpiParameterization" processLength="@originBDMMPrime.t:MERS_CoV_274">
                         <Re id="ReSPEpi.t:MERS_CoV_274" spec="bdmmprime.parameterization.SkylineVectorParameter" isScalar="false" processLength="@originBDMMPrime.t:MERS_CoV_274" skylineValues="@ReEpi.t:MERS_CoV_274" timesAreAges="true">
                             <typeSet id="typeSetBDMMPrime.t:MERS_CoV_274" spec="bdmmprime.parameterization.TypeSet">
@@ -519,7 +519,7 @@ name="alignment">
             <parameter idref="samplingProportionEpi.t:MERS_CoV_274"/>
         </operator>
         <operator id="ReAmongDemesEpiScaler.t:MERS_CoV_274" spec="ScaleOperator" parameter="@ReAmongDemesEpi.t:MERS_CoV_274" weight="3.0"/>
-        <logger id="tracelog" spec="Logger" fileName="results/$(filebase).$(seed).log" logEvery="10000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <logger id="tracelog" spec="Logger" fileName="results/$(filebase).$(preconditioner).$(inverseFlow).$(maxConditioningNumber).$(useLoucaPennellIntervals).$(seed).log" logEvery="10000" model="@posterior" sanitiseHeaders="true" sort="smart">
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
@@ -542,7 +542,7 @@ name="alignment">
             <log idref="likelihood"/>
             <log idref="prior"/>
         </logger>
-        <logger id="treelog.t:MERS_CoV_274" spec="Logger" fileName="results/$(filebase).$(seed).trees" logEvery="1000" mode="tree">
+        <logger id="treelog.t:MERS_CoV_274" spec="Logger" fileName="results/$(filebase).$(preconditioner).$(inverseFlow).$(maxConditioningNumber).$(useLoucaPennellIntervals).$(seed).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:MERS_CoV_274" spec="beast.base.evolution.TreeWithMetaDataLogger" branchratemodel="@OptimisedRelaxedClock.c:MERS_CoV_274" tree="@Tree.t:MERS_CoV_274"/>
         </logger>
         <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>

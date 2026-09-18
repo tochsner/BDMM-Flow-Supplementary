@@ -2,6 +2,7 @@
 
 shopt -s nullglob
 
+unset sum count
 declare -A sum count
 
 # Function: convert [Xh][Ym][Zs] -> seconds (all forms, all optional)
@@ -26,7 +27,7 @@ cd out
 
 for file in *.out; do
     # Extract group name
-    if [[ "$file" =~ ^(bdmmflow_random|bdmmflow|bdmmprime)_ ]]; then
+    if [[ "$file" =~ ^(bdmmflow_random|bdmmflow_random_inverse|bdmmflow|bdmmprime|bdmmflow_preconditioner|bdmmflow_preconditioner_inverse)_ ]]; then
         group="${BASH_REMATCH[1]}"
     else
         continue
